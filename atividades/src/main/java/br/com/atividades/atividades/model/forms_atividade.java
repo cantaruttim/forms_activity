@@ -12,6 +12,7 @@ public class forms_atividade {
     private Integer id;
     private String nome;
     private String matricula;
+    private String modulo;
     private String email;
     private String QUm;
     private String QDois;
@@ -38,6 +39,14 @@ public class forms_atividade {
 
     public void setMatricula(String matricula) {
         this.matricula = matricula;
+    }
+
+    public String getModulo() {
+        return modulo;
+    }
+
+    public void setModulo(String modulo) {
+        this.modulo = modulo;
     }
 
     public String getEmail() {
@@ -67,11 +76,11 @@ public class forms_atividade {
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof forms_atividade that)) return false;
-        return Objects.equals(getId(), that.getId()) && Objects.equals(getNome(), that.getNome()) && Objects.equals(getMatricula(), that.getMatricula()) && Objects.equals(getEmail(), that.getEmail()) && Objects.equals(getQUm(), that.getQUm()) && Objects.equals(getQDois(), that.getQDois());
+        return Objects.equals(getId(), that.getId()) && Objects.equals(getNome(), that.getNome()) && Objects.equals(getMatricula(), that.getMatricula()) && Objects.equals(getModulo(), that.getModulo()) && Objects.equals(getEmail(), that.getEmail()) && Objects.equals(getQUm(), that.getQUm()) && Objects.equals(getQDois(), that.getQDois());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getNome(), getMatricula(), getEmail(), getQUm(), getQDois());
+        return Objects.hash(getId(), getNome(), getMatricula(), getModulo(), getEmail(), getQUm(), getQDois());
     }
 }
