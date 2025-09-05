@@ -3,6 +3,7 @@ const formulario = document.querySelector('form');
 // Selecionando os elementos corretos do formulário
 const nome = formulario.querySelector('#nome');
 const email = formulario.querySelector('#email');
+const matricula = formulario.querySelector('#matricula');
 const q1 = formulario.querySelector('#resposta1');
 const q2 = formulario.querySelector('#resposta2');
 
@@ -28,6 +29,7 @@ function cadastrar() {
             body: JSON.stringify({
                 nome: nome.value,
                 email: email.value,
+                matricula: matricula.value,
                 q1: q1.value,
                 q2: q2.value
                 // Removidos matricula e modulo que não existem no formulário
@@ -52,12 +54,13 @@ function cadastrar() {
 function resetForm() {
     nome.value = '';
     email.value = '';
+    matricula.value = '';
     q1.value = '';
     q2.value = '';
 
         // Focar no primeiro campo para facilitar novo preenchimento
     setTimeout(() => {
-        nome.focus();
+        email.focus();
     }, 100);
     
     // Resetar mensagens de validação do navegador
