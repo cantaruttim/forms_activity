@@ -6,7 +6,7 @@ import jakarta.persistence.Table;
 import java.util.Objects;
 
 @Entity
-@Table(name = "form_atividade")
+@Table(name = "forms_atividade")
 public class forms_atividade {
 
     private Integer id;
