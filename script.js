@@ -54,6 +54,27 @@ function resetForm() {
     email.value = '';
     q1.value = '';
     q2.value = '';
+
+        // Focar no primeiro campo para facilitar novo preenchimento
+    setTimeout(() => {
+        nome.focus();
+    }, 100);
+    
+    // Resetar mensagens de validação do navegador
+    formulario.reset();
+    
+    // Remover mensagens de erro personalizadas se existirem
+    const errorElements = formulario.querySelectorAll('.error-message');
+    errorElements.forEach(element => element.remove());
+    
+    // Remover classes de validação se existirem
+    const inputs = formulario.querySelectorAll('input, textarea');
+    inputs.forEach(input => {
+        input.classList.remove('is-invalid');
+        input.classList.remove('is-valid');
+    });
+    
+    console.log('Formulário resetado com sucesso');
 }
 
 formulario.addEventListener('submit', function(event) {
