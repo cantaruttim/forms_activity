@@ -33,7 +33,14 @@ function cadastrar() {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
             },
-            body: JSON.stringify(dadosParaEnviar)
+            body: JSON.stringify({
+                nome: nome.value,
+                email: email.value,
+                matricula: matricula.value,
+                modulo: modulo.value,
+                resposta1: q1.value,
+                resposta2: q2.value
+            })
         })
         .then(response => {
             if (!response.ok) {
