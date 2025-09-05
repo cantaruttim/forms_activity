@@ -19,6 +19,23 @@ function cadastrar() {
         return;
     }
 
+    // Dados que serão enviados
+    const dadosParaEnviar = {
+        nome: nome.value,
+        email: email.value,
+        matricula: matricula.value,
+        q1: q1.value,
+        q2: q2.value
+    };
+
+    // Mock: Mostrar dados no console antes de enviar
+    console.log('Dados que seriam enviados:', dadosParaEnviar);
+    
+    // Simular envio bem-sucedido para teste (comente o fetch e descomente estas linhas para testar sem servidor)
+    // alert('Dados simulados no console! Verifique o console do navegador (F12)');
+    // resetForm();
+    // return;
+
     fetch('http://localhost:8080/cadastrar', 
         {
             method: 'POST',
@@ -26,14 +43,7 @@ function cadastrar() {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
             },
-            body: JSON.stringify({
-                nome: nome.value,
-                email: email.value,
-                matricula: matricula.value,
-                q1: q1.value,
-                q2: q2.value
-                // Removidos matricula e modulo que não existem no formulário
-            })
+            body: JSON.stringify(dadosParaEnviar)
         })
         .then(response => {
             if (!response.ok) {
@@ -58,7 +68,7 @@ function resetForm() {
     q1.value = '';
     q2.value = '';
 
-        // Focar no primeiro campo para facilitar novo preenchimento
+    // Focar no primeiro campo para facilitar novo preenchimento
     setTimeout(() => {
         email.focus();
     }, 100);
@@ -83,5 +93,6 @@ function resetForm() {
 formulario.addEventListener('submit', function(event) {
     event.preventDefault();
     cadastrar();
-    resetForm();
+    // Não chame resetForm() aqui, pois deve ser chamado apenas após sucesso
+    // resetForm(); // Remova esta linha
 });
