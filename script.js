@@ -3,6 +3,7 @@ const formulario = document.querySelector('form');
 // Selecionando os elementos corretos do formulário
 const nome = formulario.querySelector('#nome');
 const email = formulario.querySelector('#email');
+const modulo = formulario.querySelector('#modulo');
 const matricula = formulario.querySelector('#matricula');
 const q1 = formulario.querySelector('#resposta1');
 const q2 = formulario.querySelector('#resposta2');
@@ -19,17 +20,6 @@ function cadastrar() {
         return;
     }
 
-    // Dados que serão enviados
-    const dadosParaEnviar = {
-        nome: nome.value,
-        email: email.value,
-        matricula: matricula.value,
-        q1: q1.value,
-        q2: q2.value
-    };
-
-    // Mock: Mostrar dados no console antes de enviar
-    console.log('Dados que seriam enviados:', dadosParaEnviar);
     
     // Simular envio bem-sucedido para teste (comente o fetch e descomente estas linhas para testar sem servidor)
     // alert('Dados simulados no console! Verifique o console do navegador (F12)');
@@ -65,6 +55,7 @@ function resetForm() {
     nome.value = '';
     email.value = '';
     matricula.value = '';
+    modulo.value = '';
     q1.value = '';
     q2.value = '';
 
