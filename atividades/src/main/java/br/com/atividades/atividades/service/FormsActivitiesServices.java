@@ -1,7 +1,7 @@
 package br.com.atividades.atividades.service;
 
 
-import br.com.atividades.atividades.data.FormsActivitiesCollegeDTO;
+import br.com.atividades.atividades.data.dto.FormsActivitiesCollegeDTO;
 import br.com.atividades.atividades.exception.ResourceNotFoundException;
 import br.com.atividades.atividades.model.FormsActivitiesCollege;
 import br.com.atividades.atividades.repository.FormsActivitiesRepository;
@@ -20,7 +20,9 @@ import static br.com.atividades.atividades.mapper.ObjectMapper.parseObject;
 public class FormsActivitiesServices {
 
     private final AtomicLong counter = new AtomicLong();
-    private final Logger logger = LoggerFactory.getLogger(FormsActivitiesServices.class.getName());
+    private final Logger logger = LoggerFactory.getLogger(
+            FormsActivitiesServices.class.getName()
+    );
 
     @Autowired
     FormsActivitiesRepository repository;
@@ -34,7 +36,7 @@ public class FormsActivitiesServices {
     }
 
     public FormsActivitiesCollegeDTO findById(Long id) {
-        logger.info("Finding One Person!");
+        logger.info("Finding One Activity!");
 
         var entity = repository.findById(id)
                         .orElseThrow(
@@ -65,7 +67,9 @@ public class FormsActivitiesServices {
         repository.delete(entity);
     }
 
-    public FormsActivitiesCollegeDTO update(FormsActivitiesCollegeDTO activity) {
+    public FormsActivitiesCollegeDTO update(
+            FormsActivitiesCollegeDTO activity
+    ) {
         logger.info("Updating One Person!");
 
         FormsActivitiesCollege entity = repository

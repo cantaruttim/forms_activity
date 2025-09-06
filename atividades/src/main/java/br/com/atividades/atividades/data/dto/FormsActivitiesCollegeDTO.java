@@ -1,4 +1,4 @@
-package br.com.atividades.atividades.data;
+package br.com.atividades.atividades.data.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -11,6 +11,9 @@ import java.util.Objects;
 public class FormsActivitiesCollegeDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
+    @JsonProperty("Id")
+    private Long id;
 
     @JsonProperty("Nome")
     private String name;
