@@ -26,7 +26,7 @@ function cadastrar() {
     // resetForm();
     // return;
 
-    fetch('http://localhost:8080/api/activities/v1', 
+    fetch('http://localhost:8080/api/activities/v1/response', 
         {
             method: 'POST',
             headers: {

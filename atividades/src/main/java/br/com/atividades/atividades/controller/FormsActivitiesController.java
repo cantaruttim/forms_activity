@@ -1,9 +1,14 @@
 package br.com.atividades.atividades.controller;
 
 import br.com.atividades.atividades.data.dto.FormsActivitiesCollegeDTO;
+import br.com.atividades.atividades.model.FormsActivitiesCollege;
+import br.com.atividades.atividades.repository.FormsActivitiesRepository;
 import br.com.atividades.atividades.service.FormsActivitiesServices;
+import org.antlr.v4.runtime.misc.LogManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.http.ProblemDetail;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,7 +20,8 @@ public class FormsActivitiesController {
 
     @Autowired
     private FormsActivitiesServices service;
-
+    @Autowired
+    private FormsActivitiesRepository repository;
 
     @GetMapping(
             value = "/{id}",
@@ -39,6 +45,16 @@ public class FormsActivitiesController {
     public FormsActivitiesCollegeDTO create(@RequestBody FormsActivitiesCollegeDTO activity) {
         return service.create(activity);
     }
+
+    // POST VIA FRONT
+    @PostMapping("/response")
+    public ResponseEntity<?> salvarFormulario(@RequestBody FormsActivitiesCollege dadosRecebidos) {
+        System.out.println("Recebido: " + dadosRecebidos.getName());
+        FormsActivitiesCollege salvo = repository.save(dadosRecebidos);
+        return ResponseEntity.ok(salvo);
+    }
+
+
 
     @PutMapping(
             consumes = MediaType.APPLICATION_JSON_VALUE,
