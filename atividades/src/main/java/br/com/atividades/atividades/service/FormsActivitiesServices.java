@@ -2,6 +2,7 @@ package br.com.atividades.atividades.service;
 
 
 import br.com.atividades.atividades.data.FormsActivitiesCollegeDTO;
+import br.com.atividades.atividades.exception.ResourceNotFoundException;
 import br.com.atividades.atividades.model.FormsActivitiesCollege;
 import br.com.atividades.atividades.repository.FormsActivitiesRepository;
 import org.slf4j.Logger;
@@ -77,9 +78,7 @@ public class FormsActivitiesServices {
                 );
 
 //        entity.setFirstName(FormsActivitiesCollege.getFirstName());
-//        entity.setLastName(FormsActivitiesCollege.getLastName());
-//        entity.setAddress(FormsActivitiesCollege.getAddress());
-//        entity.setGender(FormsActivitiesCollege.getGender());
+
 
         return parseObject(repository.save(entity), FormsActivitiesCollegeDTO.class);
     }

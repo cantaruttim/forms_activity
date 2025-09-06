@@ -34,7 +34,7 @@ public class FormsActivitiesCollege implements Serializable {
     @Column(name = "questionTwo")
     private String questionTwo;
 
-    public static Long getId() {
+    public Long getId() {
         return id;
     }
 

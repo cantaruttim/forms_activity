@@ -1,7 +1,7 @@
 package br.com.atividades.atividades.mapper;
 
-import org.apache.catalina.mapper.Mapper;
 import com.github.dozermapper.core.DozerBeanMapperBuilder;
+import com.github.dozermapper.core.Mapper;
 
 import java.util.ArrayList;
 import java.util.List;
