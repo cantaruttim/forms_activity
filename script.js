@@ -26,7 +26,7 @@ function cadastrar() {
     // resetForm();
     // return;
 
-    fetch('http://localhost:8080/cadastrar', 
+    fetch('http://localhost:8080/api/activities/v1', 
         {
             method: 'POST',
             headers: {
@@ -34,12 +34,12 @@ function cadastrar() {
                 'Accept': 'application/json'
             },
             body: JSON.stringify({
-                nome: nome.value,
+                name: nome.value,
                 email: email.value,
-                matricula: matricula.value,
-                modulo: modulo.value,
-                resposta1: q1.value,
-                resposta2: q2.value
+                registrationNumber: matricula.value,
+                module: modulo.value,
+                questionOne: q1.value,
+                questionTwo: q2.value
             })
         })
         .then(response => {
