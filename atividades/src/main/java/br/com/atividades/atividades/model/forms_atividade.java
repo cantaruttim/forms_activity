@@ -1,7 +1,6 @@
 package br.com.atividades.atividades.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.util.Objects;
 
@@ -9,12 +8,27 @@ import java.util.Objects;
 @Table(name = "forms_atividade")
 public class forms_atividade {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Integer id;
+
+    @Column(name = "nome", nullable = false)
     private String nome;
+
+    @Column(name = "matricula", nullable = false)
     private String matricula;
+
+    @Column(name = "modulo", nullable = false)
     private String modulo;
+
+    @Column(name = "email", nullable = false)
     private String email;
+
+    @Column(name = "QUm", nullable = false)
     private String QUm;
+
+    @Column(name = "QDois", nullable = false)
     private String QDois;
 
     public Integer getId() {
