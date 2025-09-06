@@ -1,12 +1,13 @@
 package br.com.atividades.atividades.data.dto;
 
-
 import java.io.Serializable;
 import java.util.Objects;
 
 public class FormsActivitiesCollegeDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
+
     private Long id;
     private String name;
     private String email;
