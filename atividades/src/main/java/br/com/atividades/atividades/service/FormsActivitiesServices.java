@@ -82,6 +82,7 @@ public class FormsActivitiesServices {
         entity.setModule(activity.getModule());
         entity.setQuestionOne(activity.getQuestionOne());
         entity.setQuestionTwo(activity.getQuestionTwo());
+        entity.setSentAt(activity.getSentAt());
 
         return parseObject(repository.save(entity), FormsActivitiesCollegeDTO.class);
     }
