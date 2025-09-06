@@ -1,6 +1,7 @@
 package br.com.atividades.atividades.data.dto;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class FormsActivitiesCollegeDTO implements Serializable {
@@ -15,6 +16,7 @@ public class FormsActivitiesCollegeDTO implements Serializable {
     private String module;
     private String questionOne;
     private String questionTwo;
+    private LocalDateTime sentAt;
 
     public Long getId() {
         return id;
@@ -70,6 +72,14 @@ public class FormsActivitiesCollegeDTO implements Serializable {
 
     public void setQuestionTwo(String questionTwo) {
         this.questionTwo = questionTwo;
+    }
+
+    public LocalDateTime getSentAt() {
+        return sentAt;
+    }
+
+    public void setSentAt(LocalDateTime sentAt) {
+        this.sentAt = sentAt;
     }
 
     @Override
