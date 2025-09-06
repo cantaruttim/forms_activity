@@ -5,7 +5,6 @@ import jakarta.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
-
 @Entity
 @Table(name = "activities")
 public class FormsActivitiesCollege implements Serializable {
