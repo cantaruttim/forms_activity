@@ -3,6 +3,7 @@ package br.com.atividades.atividades.model;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
@@ -32,6 +33,9 @@ public class FormsActivitiesCollege implements Serializable {
 
     @Column(name = "questionTwo")
     private String questionTwo;
+
+    @Column(name = "sentAt")
+    private LocalDateTime sentAt;
 
     public FormsActivitiesCollege() {}
 
@@ -91,15 +95,29 @@ public class FormsActivitiesCollege implements Serializable {
         this.questionTwo = questionTwo;
     }
 
+    public LocalDateTime getSentAt() {
+        return sentAt;
+    }
+
+    public void setSentAt(LocalDateTime sentAt) {
+        this.sentAt = sentAt;
+    }
+
+    @PrePersist
+    public void prePersist() {
+        if (sentAt == null) {
+            sentAt = LocalDateTime.now();
+        }
+    }
 
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof FormsActivitiesCollege that)) return false;
-        return Objects.equals(getId(), that.getId()) && Objects.equals(getName(), that.getName()) && Objects.equals(getEmail(), that.getEmail()) && Objects.equals(getRegistrationNumber(), that.getRegistrationNumber()) && Objects.equals(getModule(), that.getModule()) && Objects.equals(getQuestionOne(), that.getQuestionOne()) && Objects.equals(getQuestionTwo(), that.getQuestionTwo());
+        return Objects.equals(getId(), that.getId()) && Objects.equals(getName(), that.getName()) && Objects.equals(getEmail(), that.getEmail()) && Objects.equals(getRegistrationNumber(), that.getRegistrationNumber()) && Objects.equals(getModule(), that.getModule()) && Objects.equals(getQuestionOne(), that.getQuestionOne()) && Objects.equals(getQuestionTwo(), that.getQuestionTwo()) && Objects.equals(getSentAt(), that.getSentAt());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getName(), getEmail(), getRegistrationNumber(), getModule(), getQuestionOne(), getQuestionTwo());
+        return Objects.hash(getId(), getName(), getEmail(), getRegistrationNumber(), getModule(), getQuestionOne(), getQuestionTwo(), getSentAt());
     }
 }
