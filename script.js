@@ -1,21 +1,21 @@
 const formulario = document.querySelector('form');
 
 // Selecionando os elementos corretos do formulário
-const nome = formulario.querySelector('#nome');
+const name = formulario.querySelector('#nome');
 const email = formulario.querySelector('#email');
-const modulo = formulario.querySelector('#modulo');
-const matricula = formulario.querySelector('#matricula');
-const q1 = formulario.querySelector('#resposta1');
-const q2 = formulario.querySelector('#resposta2');
+const module = formulario.querySelector('#modulo');
+const registrationNumber = formulario.querySelector('#matricula');
+const questionOne = formulario.querySelector('#resposta1');
+const questionTwo = formulario.querySelector('#resposta2');
 
 function cadastrar() {
     // Validar comprimento mínimo das respostas
-    if (q1.value.length < 300) {
+    if (questionOne.value.length < 300) {
         alert('A resposta 1 precisa ter pelo menos 300 caracteres.');
         return;
     }
-    
-    if (q2.value.length < 150) {
+
+    if (questionTwo.value.length < 150) {
         alert('A resposta 2 precisa ter pelo menos 150 caracteres.');
         return;
     }
