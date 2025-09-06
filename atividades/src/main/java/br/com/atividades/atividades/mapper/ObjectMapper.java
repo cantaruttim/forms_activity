@@ -8,7 +8,7 @@ import java.util.List;
 
 public class ObjectMapper {
 
-    // mapeia entidade -> dto e dto -> entidade
+    // map entity to dto or dto to entity
     private static Mapper mapper = DozerBeanMapperBuilder.buildDefault();
 
     public static <O, D> D parseObject(O origin , Class<D> destination) {
