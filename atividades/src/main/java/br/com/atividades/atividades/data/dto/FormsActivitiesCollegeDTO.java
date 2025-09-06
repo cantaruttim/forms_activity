@@ -1,36 +1,18 @@
 package br.com.atividades.atividades.data.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import java.io.Serializable;
 import java.util.Objects;
 
-
-@JsonPropertyOrder({"id", "Nome", "Email", "Matrícula", "Módulo", "Question_One", "Question_Two"})
 public class FormsActivitiesCollegeDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
-    @JsonProperty("Id")
     private Long id;
-
-    @JsonProperty("Nome")
     private String name;
-
-    @JsonProperty("Email")
     private String email;
-
-    @JsonProperty("Matrícula")
     private String registrationNumber;
-
-    @JsonProperty("Módulo")
     private String module;
-
-    @JsonProperty("Question_One")
     private String questionOne;
-
-    @JsonProperty("Question_Two")
     private String questionTwo;
 
     public Long getId() {
