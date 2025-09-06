@@ -1,9 +1,12 @@
 package br.com.atividades.atividades.data.dto;
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+@JsonPropertyOrder({"id", "registrationNumber", "name", "email", "module", "questionOne", "questionTwo", "sentAt"})
 public class FormsActivitiesCollegeDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
