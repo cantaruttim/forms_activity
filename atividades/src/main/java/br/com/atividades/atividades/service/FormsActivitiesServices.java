@@ -48,7 +48,9 @@ public class FormsActivitiesServices {
         return parseObject(entity, FormsActivitiesCollegeDTO.class);
     }
 
-    public FormsActivitiesCollegeDTO create(FormsActivitiesCollegeDTO activity) {
+    public FormsActivitiesCollegeDTO create(
+            FormsActivitiesCollegeDTO activity
+    ) {
         logger.info("Creating One Activity!");
         var entity = parseObject(activity, FormsActivitiesCollege.class);
         return parseObject(repository.save(entity), FormsActivitiesCollegeDTO.class);
@@ -67,24 +69,22 @@ public class FormsActivitiesServices {
         repository.delete(entity);
     }
 
-    public FormsActivitiesCollegeDTO update(
-            FormsActivitiesCollegeDTO activity
-    ) {
-        logger.info("Updating One Person!");
+    public FormsActivitiesCollegeDTO update(FormsActivitiesCollegeDTO activity) {
+        logger.info("Updating One Activity!");
 
         FormsActivitiesCollege entity = repository
-                .findById(FormsActivitiesCollege.getId())
-                .orElseThrow(
-                        // lambda funtion
-                        () -> new ResourceNotFoundException(
-                                "No records found for this ID"
-                        )
-                );
+                .findById(activity.getId())
+                .orElseThrow(() -> new ResourceNotFoundException("No records found for this ID"));
 
-//        entity.setFirstName(FormsActivitiesCollege.getFirstName());
-
+        entity.setName(activity.getName());
+        entity.setEmail(activity.getEmail());
+        entity.setRegistrationNumber(activity.getRegistrationNumber());
+        entity.setModule(activity.getModule());
+        entity.setQuestionOne(activity.getQuestionOne());
+        entity.setQuestionTwo(activity.getQuestionTwo());
 
         return parseObject(repository.save(entity), FormsActivitiesCollegeDTO.class);
     }
+
 
 }

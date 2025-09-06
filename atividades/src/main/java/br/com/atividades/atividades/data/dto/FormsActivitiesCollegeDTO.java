@@ -33,6 +33,14 @@ public class FormsActivitiesCollegeDTO implements Serializable {
     @JsonProperty("Question_Two")
     private String questionTwo;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
@@ -84,11 +92,11 @@ public class FormsActivitiesCollegeDTO implements Serializable {
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof FormsActivitiesCollegeDTO that)) return false;
-        return Objects.equals(getName(), that.getName()) && Objects.equals(getEmail(), that.getEmail()) && Objects.equals(getRegistrationNumber(), that.getRegistrationNumber()) && Objects.equals(getModule(), that.getModule()) && Objects.equals(getQuestionOne(), that.getQuestionOne()) && Objects.equals(getQuestionTwo(), that.getQuestionTwo());
+        return Objects.equals(getId(), that.getId()) && Objects.equals(getName(), that.getName()) && Objects.equals(getEmail(), that.getEmail()) && Objects.equals(getRegistrationNumber(), that.getRegistrationNumber()) && Objects.equals(getModule(), that.getModule()) && Objects.equals(getQuestionOne(), that.getQuestionOne()) && Objects.equals(getQuestionTwo(), that.getQuestionTwo());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getName(), getEmail(), getRegistrationNumber(), getModule(), getQuestionOne(), getQuestionTwo());
+        return Objects.hash(getId(), getName(), getEmail(), getRegistrationNumber(), getModule(), getQuestionOne(), getQuestionTwo());
     }
 }
