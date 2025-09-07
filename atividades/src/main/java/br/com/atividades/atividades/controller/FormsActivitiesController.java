@@ -25,7 +25,8 @@ public class FormsActivitiesController {
             value = "/{id}",
             produces = {
                     MediaType.APPLICATION_JSON_VALUE,
-                    MediaType.APPLICATION_XML_VALUE
+                    MediaType.APPLICATION_XML_VALUE,
+                    MediaType.APPLICATION_YAML_VALUE
             }
     )
     public FormsActivitiesCollegeDTO findById(@PathVariable("id") Long id) {
@@ -35,7 +36,8 @@ public class FormsActivitiesController {
     @GetMapping(
             produces = {
                     MediaType.APPLICATION_JSON_VALUE,
-                    MediaType.APPLICATION_XML_VALUE
+                    MediaType.APPLICATION_XML_VALUE,
+                    MediaType.APPLICATION_YAML_VALUE
             }
     )
     public List<FormsActivitiesCollegeDTO> findAll() {
@@ -46,7 +48,8 @@ public class FormsActivitiesController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = {
                     MediaType.APPLICATION_JSON_VALUE,
-                    MediaType.APPLICATION_XML_VALUE
+                    MediaType.APPLICATION_XML_VALUE,
+                    MediaType.APPLICATION_YAML_VALUE
             }
     )
     public FormsActivitiesCollegeDTO create(@RequestBody FormsActivitiesCollegeDTO activity) {
@@ -68,7 +71,8 @@ public class FormsActivitiesController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = {
                     MediaType.APPLICATION_JSON_VALUE,
-                    MediaType.APPLICATION_XML_VALUE
+                    MediaType.APPLICATION_XML_VALUE,
+                    MediaType.APPLICATION_YAML_VALUE
             }
     )
     public FormsActivitiesCollegeDTO update(@RequestBody FormsActivitiesCollegeDTO activity) {

@@ -13,7 +13,8 @@ public class WebConfig implements WebMvcConfigurer {
             ContentNegotiationConfigurer configurer
     ) {
         // EXTENSION.<url>.xml _.JSON Deprecated on Spring Boot 2.6
-        // QUERY PARAM <url>?mediaType=xml
+        // QUERY PARAM <url>?mediaType=xm
+        /*
         configurer.favorParameter(true)
                 .parameterName("mediaType")
                 .ignoreAcceptHeader(true)
@@ -21,5 +22,14 @@ public class WebConfig implements WebMvcConfigurer {
                 .defaultContentType(MediaType.APPLICATION_JSON)
                     .mediaType("json", MediaType.APPLICATION_JSON)
                     .mediaType("xml", MediaType.APPLICATION_XML);
+*/
+
+        configurer.favorParameter(false)
+                .ignoreAcceptHeader(false)
+                .useRegisteredExtensionsOnly(false)
+                .defaultContentType(MediaType.APPLICATION_JSON)
+                    .mediaType("json", MediaType.APPLICATION_JSON)
+                    .mediaType("xml", MediaType.APPLICATION_XML)
+                    .mediaType("yaml", MediaType.APPLICATION_YAML);
     }
 }
