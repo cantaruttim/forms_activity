@@ -23,14 +23,20 @@ public class FormsActivitiesController {
 
     @GetMapping(
             value = "/{id}",
-            produces = MediaType.APPLICATION_JSON_VALUE
+            produces = {
+                    MediaType.APPLICATION_JSON_VALUE,
+                    MediaType.APPLICATION_XML_VALUE
+            }
     )
     public FormsActivitiesCollegeDTO findById(@PathVariable("id") Long id) {
         return service.findById(id);
     }
 
     @GetMapping(
-            produces = MediaType.APPLICATION_JSON_VALUE
+            produces = {
+                    MediaType.APPLICATION_JSON_VALUE,
+                    MediaType.APPLICATION_XML_VALUE
+            }
     )
     public List<FormsActivitiesCollegeDTO> findAll() {
         return service.findAll();
@@ -38,7 +44,10 @@ public class FormsActivitiesController {
 
     @PostMapping(
             consumes = MediaType.APPLICATION_JSON_VALUE,
-            produces = MediaType.APPLICATION_JSON_VALUE
+            produces = {
+                    MediaType.APPLICATION_JSON_VALUE,
+                    MediaType.APPLICATION_XML_VALUE
+            }
     )
     public FormsActivitiesCollegeDTO create(@RequestBody FormsActivitiesCollegeDTO activity) {
         return service.create(activity);
@@ -57,7 +66,10 @@ public class FormsActivitiesController {
 
     @PutMapping(
             consumes = MediaType.APPLICATION_JSON_VALUE,
-            produces = MediaType.APPLICATION_JSON_VALUE
+            produces = {
+                    MediaType.APPLICATION_JSON_VALUE,
+                    MediaType.APPLICATION_XML_VALUE
+            }
     )
     public FormsActivitiesCollegeDTO update(@RequestBody FormsActivitiesCollegeDTO activity) {
         return service.update(activity);
