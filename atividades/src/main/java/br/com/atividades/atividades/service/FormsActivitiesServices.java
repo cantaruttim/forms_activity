@@ -1,6 +1,7 @@
 package br.com.atividades.atividades.service;
 
 
+import br.com.atividades.atividades.controller.FormsActivitiesController;
 import br.com.atividades.atividades.data.dto.FormsActivitiesCollegeDTO;
 import br.com.atividades.atividades.exception.ResourceNotFoundException;
 import br.com.atividades.atividades.model.FormsActivitiesCollege;
@@ -8,6 +9,7 @@ import br.com.atividades.atividades.repository.FormsActivitiesRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import org.springframework.stereotype.Service;
 
 import java.util.concurrent.atomic.AtomicLong;
@@ -15,6 +17,7 @@ import java.util.List;
 
 import static br.com.atividades.atividades.mapper.ObjectMapper.parseListObject;
 import static br.com.atividades.atividades.mapper.ObjectMapper.parseObject;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @Service
 public class FormsActivitiesServices {
@@ -45,7 +48,12 @@ public class FormsActivitiesServices {
                                 "No records found for this ID"
                         )
                 );
-        return parseObject(entity, FormsActivitiesCollegeDTO.class);
+        var dto = parseObject(entity, FormsActivitiesCollegeDTO.class);
+        dto.add(
+                linkTo(
+                        methodOn(FormsActivitiesController.class).findById(id)
+                ).withSelfRel().withType("GET"));
+        return dto;
     }
 
     public FormsActivitiesCollegeDTO create(
