@@ -49,12 +49,11 @@ public class FormsActivitiesServices {
                         )
                 );
         var dto = parseObject(entity, FormsActivitiesCollegeDTO.class);
-        dto.add(
-                linkTo(
-                        methodOn(FormsActivitiesController.class).findById(id)
-                ).withSelfRel().withType("GET"));
+        addHateoasLinks(id, dto);
         return dto;
     }
+
+
 
     public FormsActivitiesCollegeDTO create(
             FormsActivitiesCollegeDTO activity
@@ -95,5 +94,11 @@ public class FormsActivitiesServices {
         return parseObject(repository.save(entity), FormsActivitiesCollegeDTO.class);
     }
 
-
+    private static void addHateoasLinks(Long id, FormsActivitiesCollegeDTO dto) {
+        dto.add(linkTo(methodOn(FormsActivitiesController.class).findById(id)).withSelfRel().withType("GET"));
+        dto.add(linkTo(methodOn(FormsActivitiesController.class).findAll()).withRel("findAll").withType("GET"));
+        dto.add(linkTo(methodOn(FormsActivitiesController.class).create(dto)).withRel("create").withType("POST"));
+        dto.add(linkTo(methodOn(FormsActivitiesController.class).update(dto)).withRel("update").withType("PUT"));
+        dto.add(linkTo(methodOn(FormsActivitiesController.class).delete(id)).withRel("delete").withType("DELETE"));
+    }
 }

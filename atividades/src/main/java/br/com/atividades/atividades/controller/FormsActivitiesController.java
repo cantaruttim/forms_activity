@@ -88,9 +88,10 @@ public class FormsActivitiesController {
     }
 
     @DeleteMapping(value = "/{id}")
-    public void delete(
+    public ResponseEntity<Void> delete(
             @PathVariable("id") Long id
     ) {
         service.delete(id);
+        return ResponseEntity.noContent().build();
     }
 }
